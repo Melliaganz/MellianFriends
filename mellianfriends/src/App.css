@@ -1,0 +1,307 @@
+body{
+  font-family: "Roboto", sans-serif;
+  background-color: #18191a;
+  color: white;
+  margin: auto;
+  padding: auto;
+}
+header{
+  z-index: 500;
+  background-color: #242526;
+  top: 0px;
+  position: fixed;
+  width: 100%;
+}
+.headerContainer{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 25px;
+}
+header ul {
+  list-style: none;
+  display: flex;
+}
+header img{
+  border-radius: 50%;
+}
+
+.headerAccueil, .headerSettings{
+  padding-right: -25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  padding: 10px;
+  background-color: #3a3b3c;
+}
+
+.headerProfil{
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  margin-left: 25px;
+}
+.headerProfil img{
+  height: 44px;
+}
+.menuNavContainer{
+  margin-right: 25px;
+}
+a:hover{
+  opacity: 0.8;
+  transition: 0.25s;
+  scale: 0.98;
+}
+.rechercherNavContainer{
+  display: flex;
+  align-items: center;
+}
+.searchButton{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 25px 0px 0px 25px;
+  background-color: #3a3b3c;
+  color: white;
+  border: none;
+  height: 45px;
+}
+.searchButton:hover{
+  scale: 1.05;
+}
+.searchBarInput{
+  background-color: #3a3b3c;
+  border: none;
+  height: 45px;
+  width: 400px;
+  border-radius: 0px 25px 25px 0px;
+  color: white;
+}
+.searchBarInput::placeholder{
+  color: white;
+}
+input:focus-visible{
+  outline: none;
+}
+.feedContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 125px;
+}
+.cardCreatePostTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardCreatePostTitle img{
+border-radius: 50%;
+}
+.cardCreatePostTitle input{
+  margin-left: 10px;
+  border-radius: 35px 35px 35px 35px;
+  height: 40px;
+  width: 400px;
+  background: #3a3b3c;
+  color: white;
+  font-family: "Roboot", sans-serif;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+}
+.cardCreatePostContainer{
+  display: flex;
+  flex-direction: column;
+  background: #242526;
+  border-radius: 15px;
+  padding: 15px;
+}
+.cardCreatePostBody{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.bouttonAccepter{
+  display: flex;
+  justify-content: center;
+}
+.bouttonAccepter button{
+  cursor: pointer;
+  margin-top: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: large;
+  background: #cb324f;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  width: 150px;
+  color: white;
+}
+.bouttonAccepter button:hover{
+  opacity: 0.9;
+  transition: 0.25s;
+}
+.cardFeedContainer{
+  margin-top: 25px;
+  border-radius: 25px;
+  padding: 25px;
+  width: 650px;
+  background-color:#242526;
+  display: flex;
+  flex-direction: column;
+}
+.cardFeedTitleContainer{
+  margin-top: -15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.cardFeedTitleProfil{
+  display: flex;
+  align-items: center;
+}
+.cardFeedTitleProfil p {
+  margin-left: 15px;
+}
+.cardFeedTitleProfil img{
+  border-radius: 25px;
+}
+.cardFeedOption{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.cardFeedOption button{
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 5px;
+  transition: 0.25s;
+
+}
+.cardFeedOption button:hover{
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #3a3b3c;
+  transition: 0.25s;
+}
+.cardFeedContentContainer{
+  display: flex;
+  flex-direction: column;
+}
+.cardFeedContentContainer img{
+  max-height: 500px;
+}
+.contentImg{
+  display: flex;
+  justify-content: center;
+}
+.contentText{
+  text-align: left;
+}
+.cardFeedBottomContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.reactFeedButton{
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+.reactFeedButton button{
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  color: white;
+}
+.reactFeedButton button:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  background-color: #3a3b3c;
+  border-radius: 25px;
+  transition: 0.25s;
+}
+.commentContainer{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.commentContainer img{
+  border-radius: 25px;
+  margin-right: 5px;
+}
+.commentContainer input{
+  background-color: #3a3b3c;
+  border-radius: 25px;
+  padding: 15px;
+  color: White;
+  border:none;
+  width: 600px;
+}
+.commentContainer input::placeholder{
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
+
+}
+.blockCommentContainer{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  background-color: #3a3b3c;
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+
+}
+.textCommentPostedProfil a{
+  text-decoration: none;
+  color: white;
+}
+.textCommentPostedProfil a:hover {
+  text-decoration: underline;
+}
+.commentPostedProfil img{
+  border-radius: 50%;
+}
+.commentPostedProfil{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.likeComments button{
+  background: transparent;
+  color: white;
+  border: none;
+}
+.likeComments button:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: bold;
+}
+.seeMoreComments button{
+  background: transparent;
+  color: white;
+  border: none;
+  font-family: "Roboto", sans-serif;
+}
+.seeMoreComments button:hover{
+  font-weight: bolder;
+  cursor: pointer;
+  text-decoration: underline;
+}
