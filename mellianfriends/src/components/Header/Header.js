@@ -15,7 +15,7 @@ export default function Header() {
             </a>
             </div>
             <div className='rechercherNavContainer'>
-                <button type='search' className='searchButton'><SearchIcon /></button>
+                <button type='search' className='searchButton' aria-labelledby='bouttonSearch'><SearchIcon /></button>
                 <input type="search" className="searchBarInput" placeholder="Rechercher"></input></div>
         <div className='menuNavContainer'>
         <nav className='navOnline'>

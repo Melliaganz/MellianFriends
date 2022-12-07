@@ -18,8 +18,8 @@ function FeedContent() {
                 <p>Lucas Lengrand <br /> 55min ago </p>
                 </div>
                 <div className='cardFeedOption'>
-                   <button> <MoreHorizRoundedIcon /> </button>
-                   <button> <ClearRoundedIcon /></button>
+                   <button aria-labelledby='Options du post' title="Options"> <MoreHorizRoundedIcon /> </button>
+                   <button aria-labelledby='Supprimer le post' title="Supprimer"> <ClearRoundedIcon /></button>
                 </div>
             </div>
             <div className='cardFeedContentContainer'>
@@ -35,13 +35,13 @@ function FeedContent() {
             <div className='cardFeedBottomContainer'>
             <div className='reactFeedButton'>
                  <div className='likeButton'>                                    
-                <button type="like"><ThumbUpOffAltRoundedIcon /> J'aime !</button>
+                <button type="like" aria-labelledby="like" title="J'aime"><ThumbUpOffAltRoundedIcon /> J'aime !</button>
                 </div>
                  <div className='commentButton'>                      
-                <button type="comment"><ChatRoundedIcon />Commentez !</button>
+                <button type="comment" aria-labelledby='Commentaires' title="Commentez"><ChatRoundedIcon />Commentez !</button>
                 </div>
                  <div className='shareButton'>   
-                <button type="share"><ShareRoundedIcon/> Partagez !</button>
+                <button type="share" aria-labelledby='Partage' title="Partagez"><ShareRoundedIcon/> Partagez !</button>
                 </div>
             </div>
             <div className='commentContainer'>

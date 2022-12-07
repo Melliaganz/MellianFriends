@@ -17,11 +17,12 @@ function FeedPost() {
                     accept="image/*"
                     name="image"
                     type="file"
+                    aria-labelledby='Images'
                     ></input>
                 </div>
             </div>
             <div className='bouttonAccepter'>
-                <button type="submit" className='btnAcpt'>
+                <button type="submit" className='btnAcpt' aria-labelledby='Publier' title='Publier'>
                     Publiez
                 </button>
             </div>
