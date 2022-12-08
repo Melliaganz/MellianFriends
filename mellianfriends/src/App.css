@@ -5,12 +5,129 @@ body{
   margin: auto;
   padding: auto;
 }
+
+*::-webkit-scrollbar{
+  width: 12px;
+}
+*::-webkit-scrollbar-track{
+  background: none;
+}
+*::-webkit-scrollbar-thumb{
+  background-color: #3a3b3c;
+  border-radius: 20px
+}
+.containerfull{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginIntContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formulaireConnexion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formulaireConnexion input{
+  border-radius: 50px;
+  padding: 15px;
+  background-color: #3a3b3c;
+  color: white;
+  margin: 15px;
+}
+.loginContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2d2d2e;
+  padding: 15px;
+  border-radius: 50px;
+  width: 700px;
+  height: 700px;
+}
+.registerContainer a {
+  text-decoration: none;
+  color: #B0B3B8;
+}
+.loginContainer a:hover{
+  color: #fff;
+  transition: 0.25s;
+}
+.logoMellianFriends img{
+  border-radius: 50%;
+}
+.loginTitleH1{
+  border-bottom: 5px solid green;
+}
+.containerfull{
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.registerIntContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formulaireConnexion{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formConnexion{
+  display: flex;
+}
+.formulaireConnexion input{
+  display: table;
+  border-radius: 50px;
+  padding: 15px;
+  background-color: #3a3b3c;
+  color: white;
+  margin: 15px;
+  border: none;
+}
+.registerContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #2d2d2e;
+  padding: 15px;
+  border-radius: 50px;
+  width: 700px;
+  height: 700px;
+}
+.loginContainer a {
+  text-decoration: none;
+  color: #B0B3B8;
+}
+.loginContainer a:hover{
+  color: #fff;
+  transition: 0.25s;
+}
+.logoMellianFriends img{
+  border-radius: 50%;
+}
+.registerTitleH1{
+  border-bottom: 5px solid green;
+}
 header{
   z-index: 500;
   background-color: #242526;
   top: 0px;
   position: fixed;
   width: 100%;
+  border-bottom: 1px solid #B0B3B8;
 }
 .headerContainer{
   display: flex;
@@ -37,7 +154,35 @@ header img{
   padding: 10px;
   background-color: #3a3b3c;
 }
-
+.nameAndSurname{
+  display: flex;
+}
+.emaileAndPassword{
+  display: flex;
+}
+.buttonSubmit{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonSubmit button{
+  display: flex;
+  align-items: center;
+  background: rgb(0,189,255);
+  background: linear-gradient(0deg, rgba(0,189,255,0.4766281512605042) 0%, rgba(0,255,16,1) 100%);
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+.buttonSubmit button:hover{
+  background: rgb(0,189,255);
+  background: linear-gradient(287deg, rgba(0,189,255,0.4766281512605042) 0%, rgba(0,255,16,1) 100%);
+  transition: 1s;
+  cursor: pointer;
+}
 .headerProfil{
   height: 44px;
   display: flex;
@@ -48,6 +193,7 @@ header img{
 }
 .headerProfil img{
   height: 44px;
+  width: 44px;
 }
 .menuNavContainer{
   margin-right: 25px;
@@ -94,7 +240,7 @@ input:focus-visible{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 125px;
+  margin-top: 100px;
 }
 .cardCreatePostTitle{
   display: flex;
@@ -201,6 +347,7 @@ border-radius: 50%;
 }
 .cardFeedContentContainer img{
   max-height: 500px;
+  border-radius: 25px;
 }
 .contentImg{
   display: flex;
@@ -304,4 +451,322 @@ border-radius: 50%;
   font-weight: bolder;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.profilContainer{
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #242526;
+}
+
+.profilHeaderContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profilHeaderBanner img{
+  object-fit:cover;
+  width: 1222px;
+  max-height: 833px;
+  border-radius: 25px;
+}
+.profilHeaderBannerContainer{
+  position: absolute;
+  margin-top: 275px;
+}
+
+.buttonModifyBanner{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -60px;
+  margin-right: 35px;
+}
+
+.buttonModifyBanner button{
+  z-index: 500;
+  position: relative;
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  background: white;
+  border: none;
+  border-radius: 25px;
+}
+
+.profileInfoContainer{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 500px;
+}
+
+.profileName{
+  margin-left: 15px;
+}
+
+.buttonModifyBanner button:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.profilePictureContainer img{
+  border: 5px solid #2d2d2e;
+  border-radius: 50%;
+  height: 168px;
+}
+
+.changeProfilePictureContainer{
+  position: relative;
+  right: -133px;
+  top: -40px;
+}
+.changeProfilePictureContainer a{
+  text-decoration: none;
+  color: white;
+}
+.changeProfilePictureContainer a:hover{
+  text-decoration: none;
+}
+
+.changeProfilePicture{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a3b3c;
+  padding: 5px;
+  width: fit-content;
+  border-radius: 50%;
+}
+.infoProfileContainer{
+  text-align: center;
+}
+.buttonModifierProfil button{
+  background-color: #3a3b3c;
+  color: white;
+  font-size: large;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: none;
+  border-radius: 25px
+}
+.buttonModifierProfil button:hover{
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 0.25s;
+}
+.boutonsMenu ul{
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+.listeMenuNavProfil{
+  height: 63px;
+  margin-top: -50px;
+}
+.listeMenuNavProfil a{
+  max-height: 63px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  color: #B0B3B8;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 35px;
+  line-height: 26px;
+  padding-bottom: 15Px;
+}
+.listeMenuNavProfil a:hover{
+  transition: 0.25s;
+  color: green;
+  border-bottom: 5px solid green;
+}
+.listeMenuNavProfil a:active{
+  transition: 0.25s;
+  color: green;
+  border-bottom: 5px solid green;
+}
+
+.feedContentContainer{
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+.modifyBioButton{
+  display: flex;
+  justify-content: center;
+}
+.modifyBioButton button{
+  font-family: "Roboto", sans-serif;
+  font-weight: bolder;
+  padding: 10px;
+  width: 400px;
+  background-color: #B0B3B8;
+  border: none;
+  border-radius: 25px;
+  color: white;
+}
+.feedContentProfil{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1222px;
+}
+.rightbarContainer{
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.rightbarHeader h3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.titleRightBar h3{
+  font-family: "Roboto", sans-serif;
+  color: #B0B3B8;
+}
+.FriendsContainerList{
+  position: fixed;
+  right: 0px;
+}
+.rightbarHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+}
+.rightbarFriendsContainer img{
+  border-radius: 50%;  
+  margin-right: 20px;
+}
+.rightbarFriendsContainer a{
+  margin-bottom: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  color: #E4E6EB;
+  text-decoration: none;
+}
+.creerConversationBoutton button{
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4b4c4f;
+  border: none;
+  border-radius: 50%;
+  color: #e3e6ea;
+  padding: 10px;
+}
+.creerConversationBoutton button:hover{
+  opacity: 0.9;
+  cursor: pointer;
+}
+.introBlockContainer{
+  background-color: #242526;
+  padding: 15px;
+  border-radius: 25px;
+  margin-right: 15px;
+  width: 100%;
+}
+.infosComponent{
+  margin-right: 15px;
+  max-width: 441px;
+}
+.photosContainer{
+  margin-top: 10px;
+  background-color : #242526;
+  border-radius: 25px;
+  padding: 10px;
+}
+.photosCardTitle{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.photosCardTitle a {
+  text-decoration: none;
+  color: #B0B3B8;
+}
+.photosCardTitle a:hover{
+  color: rgb(255, 255, 255);
+  transition: 0.25s;
+}
+.photosContainer{
+  max-width: 421px;
+}
+.photosContainer img{
+  object-fit: cover;
+  margin: 1px;
+}
+.friendsContainer {
+  margin-top: 15px;
+  background-color: #242526;
+  border-radius: 25px;
+}
+.friendsCardTitle{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.titreEtNombre{
+  display: flex;
+  flex-direction: column;
+}
+.lienFriendsTitle{
+  margin-top: 20px;
+}
+.lienFriendsTitle a{
+  text-decoration: none;
+  color: #B0B3B8;
+}
+.lienFriendsTitle a:hover{
+  color: #fff;
+  transition: 0.25s;
+}
+.friendsNumber{
+  margin-top: -15px;
+  color: #B0B3B8;
+}
+.friendsListContainer img{
+  padding: 5px;
+  object-fit: cover;
+  margin: 5px;
+}
+.titreProfilAmi{
+  font-weight: 100;
+  font-size: x-small;
+}
+.friendsListContainer{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 6px;
+}
+.friendsListContainer p {
+  font-family: "Roboto", sans-serif;
+  font-size: x-small;
+  font-weight: bolder;
+  margin-left: 10px;
+  margin-top: -10px;
+}
+.navLogoContainer{
+  width: 80px;
+  height: 80px;
 }

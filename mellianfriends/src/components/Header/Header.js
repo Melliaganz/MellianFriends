@@ -21,7 +21,7 @@ export default function Header() {
         <nav className='navOnline'>
             <ul className='menuNavbar'>
                 <li><a href="/" alt="Accueil" title="Accueil" className='headerAccueil'> <HomeRoundedIcon /> </a></li>
-                <li><a href="/profil" alt="Profil" title="Profil" className='headerProfil'><img src={profil} alt="Profil"></img></a></li>
+                <li><a href="/profile" alt="Profil" title="Profil" className='headerProfil'><img src={profil} alt="Profil"></img></a></li>
                 <li><a href="/settings" alt="Settings" title="Paramètres" className='headerSettings'><SettingsIcon /></a></li>            
             </ul>
         </nav>

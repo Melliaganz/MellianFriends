@@ -58,7 +58,7 @@ function FeedContent() {
                 </a>
                 </div>
                 <div className='textCommentPostedProfil'>
-                <a href="/profil/:id" alt="Profil" Title="Profil">Lengrand Lucas</a>
+                <a href="/profil/:id" alt="Profil" title="Profil">Lengrand Lucas</a>
                 </div>
             </div>
             <div className='commentPostedContent'>
