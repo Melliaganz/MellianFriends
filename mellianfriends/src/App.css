@@ -122,7 +122,7 @@ body{
   border-bottom: 5px solid green;
 }
 header{
-  z-index: 500;
+  z-index: 600;
   background-color: #242526;
   top: 0px;
   position: fixed;
@@ -352,6 +352,8 @@ border-radius: 50%;
 .contentImg{
   display: flex;
   justify-content: center;
+  align-items: center;
+  max-width: 400px;
 }
 .contentText{
   text-align: left;
@@ -694,6 +696,8 @@ border-radius: 50%;
   background-color : #242526;
   border-radius: 25px;
   padding: 10px;
+  overflow: hidden;
+  max-height: 530px;
 }
 .photosCardTitle{
   display: flex;
@@ -714,10 +718,17 @@ border-radius: 50%;
 .photosContainer img{
   object-fit: cover;
   margin: 1px;
+  border-radius: 25px;
+  padding: 2px;
 }
 .friendsContainer {
   margin-top: 15px;
   background-color: #242526;
+  border-radius: 25px;
+  max-height: 600px;
+  overflow: hidden;
+}
+.friendsContainer img{
   border-radius: 25px;
 }
 .friendsCardTitle{

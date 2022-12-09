@@ -23,7 +23,7 @@ function FeedPost() {
             </div>
             <div className='bouttonAccepter'>
                 <button type="submit" className='btnAcpt' aria-labelledby='Publier' title='Publier'>
-                    Publiez
+                    Publier
                 </button>
             </div>
             </form>
