@@ -75,12 +75,7 @@ function Friends() {
             </a>
             <p>Florie Réboul</p>
             </div>
-            <div>
-            <a href="/profile/:id" alt="ProfilAmis">
-            <img src={copaings8} alt="Profil" title="Profil de la personne"height={122.64} width={122.64}></img>
-            </a>
-            <p>Florie Réboul</p>
-            </div>
+            
         </div>
     </div>
   )

@@ -47,9 +47,11 @@ module.exports = {
         type: Sequelize.BOOLEAN
       },
       profilePic: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       coverPic: {
+        allowNull: true,
         type: Sequelize.STRING
       },
       createdAt: {

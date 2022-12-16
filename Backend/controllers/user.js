@@ -25,7 +25,8 @@ exports.signup = (req, res, next) => {
   let name = req.body.name;
   let surname = req.body.surname;
   let password = req.body.password;
-  let imageUrl = "https://freeimghost.net/images/2022/05/25/icon1653051982534.webp";
+  let profilePic = null
+  let coverPic = null
 
   // Hash the email the have a unique validation
   let emailHash = cryptoJS.MD5(req.body.email).toString();
@@ -96,7 +97,7 @@ exports.signup = (req, res, next) => {
               )
               .catch((error) => res.status(400).json({ error }));
           })
-          .catch((error) => res.status(500).json({ error }));
+          .catch((error) => res.status(500).json({ error: error.message }));
       } else {
         return res.status(409).json({ error: "email already used" });
       }
@@ -224,7 +225,7 @@ exports.getUserProfile = (req, res, next) => {
   }
 
   models.User.findOne({
-    attributes: ["id", "name", "surname", "email", "createdAt", "imageUrl"],
+    attributes: ["id", "name", "surname", "email", "createdAt", "profilePic", "coverPic" ],
     where: { id: CurrentUserId },
   })
     .then((user) => {
@@ -261,23 +262,23 @@ exports.updateUserProfile = (req, res, next) => {
   // Params
   let name = req.body.name;
   let surname = req.body.surname;
-  let imageUrl = req.body && req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : null;
-
+  let profilePic = req.body && req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : null;
+  let coverPic = req.body && req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : null;
 
 
   models.User.findOne({
-    attributes: ["id", "name", "surname", "imageUrl"],
+    attributes: ["id", "name", "surname", "profilePic", "coverPic"],
     where: { id: CurrentUserId },
   })
     .then((user) => {
       if (!user) {
         res.status(404).json({ error: "User not found" });
       }
-      if (user.imageUrl != null) {
-        const filename = user.imageUrl.split("/images/")[1];
-        fs.unlink(`images/${filename}`, (err) => {
+      if (user.profilePic != null) {
+        const last_filename = user.profilePic.split("/images/")[1];
+        fs.unlink(`images/` + last_filename, (err) => {
           if (err) {
-            console.log("impossible de supprimer l'image " + err);
+            console.log("impossible de supprimer l'image " + err.message);
           } else {
             console.log("image supprimée")
           }
@@ -288,7 +289,8 @@ exports.updateUserProfile = (req, res, next) => {
           .update({
             name: (name ? name : user.name),
             surname: (surname ? surname : user.surname),
-            imageUrl: (imageUrl ? imageUrl : user.imageUrl),
+            profilePic: (profilePic ? profilePic : user.profilePic),
+            coverPic: (coverPic ? coverPic: user.coverPic),
           })
           .then((updated) => {
             if (updated) {
@@ -302,7 +304,7 @@ exports.updateUserProfile = (req, res, next) => {
       }
     })
     .catch((error) => {
-      res.status(500).json({ error: "Erreur" });
+      res.status(500).json({ error: error.message });
     });
 };
 
@@ -316,7 +318,7 @@ exports.deleteUserProfile = (req, res) => {
 
   models.User.findOne({
     where: { id: CurrentUserId },
-    attributes: ["id", "name", "surname", "email", "createdAt", "imageUrl"],
+    attributes: ["id", "name", "surname", "email", "createdAt", "profilePic"],
   })
   
     .then((user) => {
@@ -331,8 +333,8 @@ exports.deleteUserProfile = (req, res) => {
           });
           
         }
-        if (user.imageUrl != null) {
-          const filename = user.imageUrl.split("/images/")[1];
+        if (user.profilePic != null) {
+          const filename = user.profilePic.split("/images/")[1];
           fs.unlink(`./images/${filename}`, (err) => {
             console.log(err);
           })

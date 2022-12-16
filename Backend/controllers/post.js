@@ -11,6 +11,7 @@ exports.createPost = (req, res) => {
 
   // Params
   let content = req.body.content;
+  let imageUrl = req.body && req.file ? `${req.protocol}://${req.get('host')}/images/${req.file.filename}` : null;
 
   if (content == null) {
     return res.status(400).json({ error: "Missing parameters" });
@@ -27,8 +28,10 @@ exports.createPost = (req, res) => {
       if (user) {
         models.Post.create({
           content: content,
+          imageUrl: imageUrl,
           likes: 0,
           UserId: user.id,
+          
         })
           .then((newPost) => {
             if (newPost) {
@@ -85,7 +88,7 @@ exports.getAllPosts = (req, res) => {
     include: [
       {
         model: models.User,
-        attributes: ["name", "surname", "id", "imageUrl"],
+        attributes: ["name", "surname", "id", "profilePic"],
       },
     ],
   })
@@ -93,7 +96,7 @@ exports.getAllPosts = (req, res) => {
       const response = getPagingData(data, page, limit);
       res.send(response);
     })
-    .catch((error) => res.status(404).json(data));
+    .catch((error) => res.status(404).json(error));
   // .then((posts) => {
   //   if (posts.length > 0) {
   //     res.status(200).json(posts);
@@ -140,7 +143,7 @@ exports.getUserAllPosts = (req, res) => {
     include: [
       {
         model: models.User,
-        attributes: ["name", "surname", "id","imageUrl"],
+        attributes: ["name", "surname", "id", "profilePic"],
       },
     ],
   }).then((data) => {
@@ -172,7 +175,7 @@ exports.getOnePost = (req, res) => {
     include: [
       {
         model: models.User,
-        attributes: ["name", "surname", "id", "imageUrl"],
+        attributes: ["name", "surname", "id", "profilePic"],
       },
     ],
   })

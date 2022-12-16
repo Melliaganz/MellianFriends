@@ -1,9 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import logo from "../../images/43289078_1104665113044499_8887411126501900288_n.jpg";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import {REGEX} from "../../_utils/auth/auth.functions"
 
 
 function Register() {
+  const [emailValue, setEmailValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
+  const [firstnameValue, setFirstnameValue] = useState("");
+  const [surnameValue, setSurnameValue] = useState("");
+  const navigate = useNavigate();
+
+  const sendData = (e) => {
+    e.preventDefault();
+    console.log(emailValue, passwordValue, firstnameValue, surnameValue);
+
+    const requestOptions = {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      credentials: "include",
+      body: JSON.stringify({
+        name: firstnameValue,
+        surname: surnameValue,
+        email: emailValue,
+        password: passwordValue
+      }),
+    };
+    fetch("http://localhost:3000/api/auth/signup", requestOptions)
+    .then((response) => {
+      console.log(response.json());
+      if (response.ok) {
+        navigate("/login")
+      }
+    })
+    .catch((error) => console.log(error));
+  }
   return (
     <div className='containerfull'>
     <div className='registerContainer'>
@@ -15,7 +47,7 @@ function Register() {
                 <h1 className='registerTitleH1'>MellianFriends</h1>
             </div>
             <div className='formulaireConnexion'>
-            <form >
+            <form onSubmit={sendData}>
               <div className='nameAndSurname'>
                 <div className='nameContainerLogin'>
                   <label htmlFor='nom'>Nom</label>
@@ -25,6 +57,8 @@ function Register() {
                   type="text"
                   placeholder='ex:Dupont'
                   required
+                  pattern={REGEX.NAME_REGEX}
+                  onChange={(event) => setFirstnameValue(event.target.value)}
                   />
                 </div>
                 <div className='prenomContainerLogin'>
@@ -35,6 +69,8 @@ function Register() {
                   type="text"
                   placeholder='ex: Jean'
                   required
+                  pattern={REGEX.SURNAME_REGEX}
+                  onChange={(event) => setSurnameValue(event.target.value)}
                   />
                 </div>
                 </div>
@@ -46,7 +82,9 @@ function Register() {
                     type="email"
                     className='emailForm'
                     placeholder='ex: Mellian@gmail.com'
-                    required></input>
+                    required 
+                    onChange={(event) => setEmailValue(event.target.value)}
+                    />
                 </div>
                 <div className='passwordContainerLogin'>
                     <label htmlFor='Password'>Mot de passe</label>
@@ -56,6 +94,8 @@ function Register() {
                     className='passwordForm'
                     required
                     placeholder='ex: Abc123,'
+                    pattern={REGEX.PASSWORD_REGEX}
+                    onChange={(event) => setPasswordValue(event.target.value)}
                     />
                 </div>
                 </div>
@@ -68,7 +108,7 @@ function Register() {
             </div>
         </div>
         <div className='registerLink'>
-        <a href="/Login" alt="Se connecter" title="Se connecter">
+        <a href="/login" alt="Se connecter" title="Se connecter">
             Vous avez déjà un compte?
         </a>
     </div>

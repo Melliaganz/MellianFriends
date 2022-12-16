@@ -5,7 +5,10 @@ body{
   margin: auto;
   padding: auto;
 }
-
+.headerOffline{
+  display: flex;
+  justify-content: center;
+}
 *::-webkit-scrollbar{
   width: 12px;
 }
@@ -17,7 +20,6 @@ body{
   border-radius: 20px
 }
 .containerfull{
-  margin-top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,6 +53,8 @@ body{
   border-radius: 50px;
   width: 700px;
   height: 700px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 36%, rgba(0,212,255,1) 100%);
 }
 .registerContainer a {
   text-decoration: none;
@@ -66,17 +70,13 @@ body{
 .loginTitleH1{
   border-bottom: 5px solid green;
 }
-.containerfull{
-  margin-top: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .registerIntContainer{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
 }
 .formulaireConnexion{
   display: flex;
@@ -106,10 +106,14 @@ body{
   border-radius: 50px;
   width: 700px;
   height: 700px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 36%, rgba(0,212,255,1) 100%);
 }
+
 .loginContainer a {
   text-decoration: none;
   color: #B0B3B8;
+  
 }
 .loginContainer a:hover{
   color: #fff;
@@ -125,7 +129,7 @@ header{
   z-index: 600;
   background-color: #242526;
   top: 0px;
-  position: fixed;
+  position: sticky;
   width: 100%;
   border-bottom: 1px solid #B0B3B8;
 }
@@ -173,15 +177,18 @@ header img{
   border-radius: 25px;
   border: none;
   color: white;
-  padding: 15px;
+  padding: 5px;
   font-family: "Roboto", sans-serif;
   font-weight: bold;
+  margin-bottom: 15px;
+  transition: 0.5s;
 }
 .buttonSubmit button:hover{
   background: rgb(0,189,255);
   background: linear-gradient(287deg, rgba(0,189,255,0.4766281512605042) 0%, rgba(0,255,16,1) 100%);
-  transition: 1s;
+  transition: 0.5s;
   cursor: pointer;
+  scale: 1.1;
 }
 .headerProfil{
   height: 44px;
@@ -235,13 +242,7 @@ a:hover{
 input:focus-visible{
   outline: none;
 }
-.feedContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 100px;
-}
+
 .cardCreatePostTitle{
   display: flex;
   justify-content: center;
@@ -262,12 +263,22 @@ border-radius: 50%;
   border: none;
   padding: 10px;
 }
+.hourAndDate{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-small;
+  color: #B0B3B8;
+}
+
 .cardCreatePostContainer{
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: #242526;
-  border-radius: 15px;
+  border-radius: 0px 0px 25px 25px;
   padding: 15px;
+  width: 550px;
 }
 .cardCreatePostBody{
   margin-top: 10px;
@@ -454,7 +465,10 @@ border-radius: 50%;
   cursor: pointer;
   text-decoration: underline;
 }
-
+.profilBanner{
+  display: flex;
+  justify-content: center;
+}
 .profilContainer{
   font-family: "Roboto", sans-serif;
   display: flex;
@@ -462,7 +476,6 @@ border-radius: 50%;
   justify-content: space-around;
   background-color: #242526;
 }
-
 .profilHeaderContainer{
   display: flex;
   align-items: center;
@@ -473,11 +486,10 @@ border-radius: 50%;
   object-fit:cover;
   width: 1222px;
   max-height: 833px;
-  border-radius: 25px;
+  border-radius: 0px 0px 25px 25px;
 }
 .profilHeaderBannerContainer{
   position: absolute;
-  margin-top: 275px;
 }
 
 .buttonModifyBanner{
@@ -506,7 +518,7 @@ border-radius: 50%;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 500px;
+  margin-top: 450px;
 }
 
 .profileName{
@@ -549,7 +561,8 @@ border-radius: 50%;
 .infoProfileContainer{
   text-align: center;
 }
-.buttonModifierProfil button{
+.buttonModifierProfil a{
+  text-decoration: none;
   background-color: #3a3b3c;
   color: white;
   font-size: large;
@@ -600,9 +613,13 @@ border-radius: 50%;
 }
 
 .feedContentContainer{
-  margin-top: 15px;
   display: flex;
   justify-content: center;
+}
+.feedContentContainer2{
+  display: flex;
+  flex-direction: column;
+  margin-left: -150px;
 }
 .modifyBioButton{
   display: flex;
@@ -618,6 +635,21 @@ border-radius: 50%;
   border-radius: 25px;
   color: white;
 }
+.feedPosition{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.feedPosition2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+.feedPostContainer{
+  display: flex;
+  justify-content: center;
+}
 .feedContentProfil{
   display: flex;
   flex-direction: column;
@@ -626,6 +658,8 @@ border-radius: 50%;
   max-width: 1222px;
 }
 .rightbarContainer{
+  right:0px;
+  position: fixed;
   height: 1000px;
   display: flex;
   flex-direction: column;
@@ -756,6 +790,9 @@ border-radius: 50%;
   margin-top: -15px;
   color: #B0B3B8;
 }
+.friendsListProfile{
+  width: 440px;
+}
 .friendsListContainer img{
   padding: 5px;
   object-fit: cover;
@@ -768,6 +805,7 @@ border-radius: 50%;
 .friendsListContainer{
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   margin: 6px;
 }
 .friendsListContainer p {
@@ -780,4 +818,72 @@ border-radius: 50%;
 .navLogoContainer{
   width: 80px;
   height: 80px;
+}
+.formInputContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.bouttonDeConnexion{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.bouttonDeConnexion button{
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 25px;
+  background: rgb(0,189,255);
+  background: linear-gradient(137deg, rgba(0,189,255,0.4766281512605042) 0%, rgba(0,255,16,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.bouttonDeConnexion button:hover{
+  background: rgb(0,189,255);
+  background: linear-gradient(325deg, rgba(0,189,255,0.4766281512605042) 0%, rgba(0,255,16,1) 100%);
+  cursor: pointer;
+  scale: 1.1;
+  transition: 0.5s;
+}
+.formConnexion{
+  display: flex;
+  flex-direction: column;
+}
+.pageNotFound{
+  margin-top: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.leftBarContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+}
+.copyrightText{
+  display: flex;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: small;
+  color: #4b4c4f;
+  margin-left: 10px;
+}
+.copyrightText a{
+  text-decoration: none;
+  color: inherit;
+  transition: 0.25s;
+}
+.copyrightText a:hover{
+  color: red;
+  scale: 0.99;
+  transition: 0.25s;
 }
