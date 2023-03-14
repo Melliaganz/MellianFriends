@@ -30,6 +30,14 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      profilePic: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
+      coverPic: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       admin: {
         type: Sequelize.BOOLEAN
       },
@@ -45,14 +53,6 @@ module.exports = {
       login_attempts: {
         defaultValue: 0,
         type: Sequelize.BOOLEAN
-      },
-      profilePic: {
-        allowNull: true,
-        type: Sequelize.STRING
-      },
-      coverPic: {
-        allowNull: true,
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

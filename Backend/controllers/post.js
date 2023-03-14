@@ -201,7 +201,68 @@ exports.getOnePost = (req, res) => {
       return res.status(404).json({ error: "Post not found" });
     });
 };
+exports.likePost = (req, res) => {
+  // Getting auth header
+  let userInfos = functions.getInfosUserFromToken(req, res);
 
+  if (userInfos.userId < 0) {
+    return res.status(400).json({ error: "Wrong token" });
+  }
+
+  // Params
+  let postId = req.params.id;
+
+  models.Post.findOne({
+    where: { id: postId },
+  })
+    .then((post) => {
+      if (!post) {
+        return res.status(404).json({ error: "Post not found" });
+      }
+
+      models.Like.findOne({
+        where: { userId: userInfos.userId, postId: postId },
+      })
+        .then((like) => {
+          if (!like) {
+            models.Like.create({
+              userId: userInfos.userId,
+              postId: postId,
+            })
+              .then(() => {
+                post.increment("likes").then(() => {
+                  res.status(200).json({ message: "Post liked" });
+                });
+              })
+              .catch((error) => {
+                console.log(error);
+                return res.status(500).json({ error: "Internal error" });
+              });
+          } else {
+            models.Like.destroy({
+              where: { userId: userInfos.userId, postId: postId },
+            })
+              .then(() => {
+                post.decrement("likes").then(() => {
+                  res.status(200).json({ message: "Post unliked" });
+                });
+              })
+              .catch((error) => {
+                console.log(error);
+                return res.status(500).json({ error: "Internal error" });
+              });
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          return res.status(500).json({ error: "Internal error" });
+        });
+    })
+    .catch((error) => {
+      console.log(error);
+      return res.status(500).json({ error: "Internal error" });
+    });
+};
 exports.deletePost = (req, res) => {
   let userInfos = functions.getInfosUserFromToken(req, res);
   let postId = req.params.id;

@@ -1,21 +1,32 @@
-const multer = require('multer');
-
-const MIME_TYPES = {
-    'image/jpg': 'jpg',
-    'image/jpeg': 'jpg',
-    'image/png': 'png',
-    'image/gif': 'gif',
-};
+const multer = require("multer");
 
 const storage = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, 'images');
-    },
-    filename: (req, file, callback) => {
-        const name = file.originalname.split('.')[0];
-        const extension = MIME_TYPES[file.mimetype];
-        callback(null, name + Date.now() + '.' + extension);
-    }
+destination: (req, file, cb) => {
+cb(null, "profilePic");
+},
+filename: (req, file, cb) => {
+cb(null, new Date().toISOString() + "-" + file.originalname);
+},
 });
 
-module.exports = multer({ storage: storage }).any('image');
+const fileFilter = (req, file, cb) => {
+if (
+file.mimetype === "image/png" ||
+file.mimetype === "image/jpg" ||
+file.mimetype === "image/jpeg"
+) {
+cb(null, true);
+} else {
+cb(null, false);
+}
+};
+
+const upload = multer({
+storage: storage,
+limits: {
+fileSize: 1024 * 1024 * 5,
+},
+fileFilter: fileFilter,
+});
+
+module.exports = upload.single("profilePic");

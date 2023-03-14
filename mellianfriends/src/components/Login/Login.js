@@ -1,43 +1,49 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from "../../images/43289078_1104665113044499_8887411126501900288_n.jpg";
+import logo from '../../images/43289078_1104665113044499_8887411126501900288_n.jpg';
 import { isLogged } from '../../_utils/auth/auth.functions';
 import LoginIcon from '@mui/icons-material/Login';
 
-function Login(){
-    const [emailValue, setEmailValue] = useState("");
-    const [passwordValue, setPasswordValue] = useState("");
-    const navigate = useNavigate();
+function Login() {
+  const [emailValue, setEmailValue] = useState('');
+  const [passwordValue, setPasswordValue] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        if (isLogged()) {
-            navigate("/");
-        }
-    }, [navigate])
-
-    const sendData = (e) => {
-        e.preventDefault();
-        console.log(emailValue, passwordValue);
-
-        const requestOptions = {
-            method:"POST",
-            headers:{ "Content-Type": "application/json"},
-            credentials: "include",
-            body: JSON.stringify({
-                email: emailValue,
-                password: passwordValue,
-            }),
-        };
-        console.log(requestOptions)
-        fetch("http://localhost:3000/api/auth/login", requestOptions)
-        .then((response) => {
-            if (response.status === 200) {
-                navigate("/");
-                window.location.reload();
-            }
-        })
-        .catch((error) => console.log(error.message));
+  useEffect(() => {
+    if (isLogged()) {
+      navigate('/');
     }
+  }, [navigate]);
+
+  const sendData = (e) => {
+    e.preventDefault();
+    console.log(emailValue, passwordValue);
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        email: emailValue,
+        password: passwordValue,
+      }),
+    };
+    console.log(requestOptions);
+    fetch('http://localhost:3000/api/auth/login', requestOptions)
+      .then((response) => {
+        if (response.status === 200) {
+          navigate('/');
+          window.location.reload();
+        } else {
+          setError('Mot de passe ou Email Invalide.');
+        }
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError('There was an error. Please try again later.');
+      });
+  };
   return (
     <div className='containerfull'>
     <div className='loginContainer'>
@@ -50,6 +56,11 @@ function Login(){
             </div>
             <div className='formulaireConnexion'>
             <form className='formConnexion' onSubmit={sendData}>
+                {error && (
+                    <div className='errorContainer'>
+                        <p className='errorMessage'>{error}</p>
+                    </div>
+                )}
                 <div className='formContainerFull'>
                 <div className='formInputContainer'>
                 <div className='emailContainerLogin'>

@@ -64,6 +64,7 @@ function logout(page) {
 const getAccount = (accountId, page) => {
   const requestOptions = {
     method: "GET",
+    headers: { "Content-Type": "application/json" },
     credentials: "include",
   };
   return fetchApi(`auth/account/${accountId}`, page, requestOptions);
@@ -79,6 +80,7 @@ const deleteAccount = (accountId, page) => {
   return fetchApi(`auth/account/${accountId}`, page, requestOptions)
     
 };
+
 
 export {
   getEmailFromCrypto,

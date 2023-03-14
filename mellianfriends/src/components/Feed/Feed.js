@@ -11,6 +11,7 @@ import FeedPost from './FeedPost';
 import FeedContent from './FeedContent';
 import Rightbar from '../Rightbar/Rightbar';
 import PostCommentsContainer from "./PostCommentsContainer"
+import PostComment from './postComment';
 
 const Feed = ({...params}) => {
   const [error, setError] = useState(null);
@@ -139,7 +140,8 @@ const Feed = ({...params}) => {
           <div className=''>
             <FeedContent {...posts} onErase={handleErase} />
           </div>
-          <div><PostCommentsContainer onPost={handleCommentPost}/> </div>
+          <div><PostComment /></div>
+          <div className='commentairesContainer'><PostCommentsContainer onPost={handleCommentPost} commentQuery="getPostAllComments"/> </div>
         </section>
       </React.Fragment>
     )
@@ -178,7 +180,7 @@ const Feed = ({...params}) => {
     return (
       <React.Fragment>
         {params.createPost ? <div className='feedPostContainer'><FeedPost onPost={handlePost} /></div> : null}
-        <div className=''><NoPostFound /></div>
+        <div><NoPostFound /></div>
       </React.Fragment>
     )
   }

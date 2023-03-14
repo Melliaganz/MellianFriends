@@ -9,6 +9,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Login/Register";
 import UnloggedHeader from "./components/Header/UnloggedHeader"
 import { PageNotFound } from "./components/infos/NotFound";
+import PostCommentsContainer from "./components/Feed/PostCommentsContainer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(isLogged(false))
@@ -34,6 +35,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path ="/" element={isLoggedIn ? <Feed postQuery="getPosts" createPost={true} /> : <Navigate to="/login" />} exact />
             <Route path="/account/:id" element={ isLoggedIn ? <Profil postQuery="getAllUserPosts"  onLogout={handleLogout} /> : <Navigate to="/login" />}/>
+            <Route path="/account/:id/edit" element={ isLoggedIn ? <Profil editor={true} /> : <Navigate to="/login"/> }/>
+            <Route path="/posts/:id" exact element={isLoggedIn ? <Feed postQuery="getOnePost" /> : <Navigate to ="/login"/>}/>
           </Routes>
           </BrowserRouter>
       </main>

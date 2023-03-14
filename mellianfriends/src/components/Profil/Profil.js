@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom'
 import { getAccount } from '../../_utils/auth/auth.functions';
 import { NoUserFound } from "../infos/NotFound";
 import Account from './Account';
+import AccountEdit from './AccountEdit';
 import AccountPostContainer from './AccountPostContainer';
 
-const Profil = ({...params}) => {
+const Profil = (params) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [account, setAccount] = useState([]);
@@ -19,6 +20,7 @@ const Profil = ({...params}) => {
           res.json().then((result) => {
             setAccount(result);
             setIsLoaded(true);
+            console.log(result);
           });
         } else if (res.status === 404) {
           setError(404);
@@ -69,6 +71,9 @@ const Profil = ({...params}) => {
           onDeleteAccount={handlerDeletedAccount}
           />
         ): null}
+        {params.editor ? (
+          <AccountEdit {...account} onPost={handlePost} />
+        ) : null }
         </section>
         {!params.editor ? <AccountPostContainer /> : null}
     </React.Fragment>

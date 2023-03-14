@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     lock_until: DataTypes.STRING,
     login_attempts: DataTypes.INTEGER,
     profilePic: DataTypes.STRING,
-    coverPic: DataTypes.STRING
+    coverPic: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'User',

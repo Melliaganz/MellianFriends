@@ -24,7 +24,7 @@ const createAccountLimiter = rateLimit({
 //
 //
 
-router.post("/signup", createAccountLimiter, userCtrl.signup);
+router.post("/signup", createAccountLimiter, multer, userCtrl.signup);
 router.post("/login", apiLimiter, userCtrl.login);
 router.post("/logout", userCtrl.logout);
 

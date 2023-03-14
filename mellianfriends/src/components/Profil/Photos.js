@@ -45,9 +45,6 @@ function Photos() {
             <a href="profile/photos/:id" alt="photo">
                 <img src={photo8} alt="photos" title="Voir en grand" height={127.31} width={127.31}></img>
             </a> 
-            <a href="profile/photos/:id" alt="photo">
-                <img src={photo8} alt="photos" title="Voir en grand" height={127.31} width={127.31}></img>
-            </a> 
         </div>
     </div>
   )

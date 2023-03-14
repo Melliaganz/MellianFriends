@@ -7,7 +7,7 @@ function Intro() {
         <h3 className='titreIntro'>Intro</h3>
       </div>
       <div className='introText'>
-        <p className='introTextP' contentEditable> Bonjour bienvenue sur mon compte Mellianfriends</p>
+        <p className='introTextP'> Bonjour bienvenue sur mon compte Mellianfriends</p>
       </div>
       <div className='modifyBioButton'>
         <button type='modify' className='modifyBioButtonB'> Modifier les infos</button>

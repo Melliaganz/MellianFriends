@@ -4,12 +4,24 @@ const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user");
 const postRoutes = require("./routes/post");
 const commentRoutes = require('./routes/comment');
-const cors = require('cors');
 const path = require('path');
 const helmet = require('helmet');
 const xss = require('xss-clean');
+const cors = require('cors');
+
 
 const app = express();
+
+app.use(helmet());
+app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use('/profilePic ', express.static(path.join(__dirname, 'profilePic')));
+app.use(xss());
+// Prevent DOS attacks
+app.use(express.json({ limit: '10kb' })); // Body limit is 10kb
+
+// Set headers for CORS
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001')
   res.setHeader(
@@ -22,21 +34,11 @@ app.use((req, res, next) => {
   )
   next()
 })
-app.use(helmet());
-app.use(cors({origin: "http://localhost:3001", credentials: true}));
-app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use('/images', express.static(path.join(__dirname, 'images')));
-app.use(xss());
-// Prevent DOS attacks
-app.use(express.json({ limit: '10kb' })); // Body limit is 10kb
 
-
+app.use(cors({ origin: "http://localhost:3001", credentials: true }));
 
 app.use("/api/auth", userRoutes);
 app.use("/api/posts", postRoutes);
 app.use('/api/posts', commentRoutes)
-
 
 module.exports = app;

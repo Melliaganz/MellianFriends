@@ -1,3 +1,6 @@
+import globalFunctions from "../../_utils/_functions"
+import PostComment from "./postComment";
+import { deleteOneComment } from "../../_utils/comments/comments.function"
 import ThumbUpOffAltRounded from '@mui/icons-material/ThumbUpOffAltRounded';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import React from 'react'
@@ -17,12 +20,12 @@ const Comment = ({...comment}) => {
     <div className='blockCommentContainer'>
             <div className='commentPostedProfil'>
                 <div className='imageCommentPostedProfil'>
-                <a href="/profil/:id" alt="Profil" title="Profil">
-                <img src={profil} alt="Profil" height={35}></img>
+                <a href={"/account/" + comment.User.id} alt="Profil" title="Profil">
+                <img src={comment.User.profilePic} alt="Profil" height={35}></img>
                 </a>
                 </div>
                 <div className='textCommentPostedProfil'>
-                <a href="/profil/:id" alt="Profil" title="Profil">Lengrand Lucas</a>
+                <a href="/profil/:id" alt="Profil" title="Profil">{comment.User.name} {comment.User.surname}</a>
                 </div>
             </div>
             <div className='commentPostedContent'>

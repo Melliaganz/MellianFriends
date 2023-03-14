@@ -1,21 +1,21 @@
 {
   "development": {
-    "username": "adm",
-    "password": "hello",
+    "username": "root",
+    "password": "root",
     "database": "MellianFriends_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "adm",
-    "password": "hello",
+    "username": "root",
+    "password": "root",
     "database": "MellianFriends_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "adm",
-    "password": "hello",
+    "username": "root",
+    "password": "root",
     "database": "MellianFriends_production",
     "host": "127.0.0.1",
     "dialect": "mysql"

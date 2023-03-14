@@ -25,3 +25,8 @@ export const PageNotFound = () => {
         </div>
     )
 }
+export const CommentsNotFound = () => {
+    <div>
+        <p>Aucun Commentaire</p>
+    </div>
+}

@@ -25,8 +25,8 @@ exports.signup = (req, res, next) => {
   let name = req.body.name;
   let surname = req.body.surname;
   let password = req.body.password;
-  let profilePic = null
-  let coverPic = null
+  let profilePic = `${req.protocol}://${req.get('host')}/profilePic/noavatar.png`;
+  let coverPic = `${req.protocol}://${req.get('host')}/profilePic/nocover.png`;
 
   // Hash the email the have a unique validation
   let emailHash = cryptoJS.MD5(req.body.email).toString();

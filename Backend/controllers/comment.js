@@ -8,7 +8,7 @@ exports.createComment = (req, res) => {
     return res.status(400).json({ error: "Wrong token" });
   }
   // Params
-  let commentId = req.params.id
+  let postId = req.params.id
   let text = req.body.text;
 
   if (text == null) {
@@ -31,20 +31,20 @@ exports.createComment = (req, res) => {
         })
           .then((newComment) => {
             if (newComment) {
-              return res.status(201).json({ Post: "Post posted !" });
+              return res.status(201).json({ Post: "Comment posted !" });
             } else {
-              return res.status(500).json({  error: "error.post" });
+              return res.status(500).json({  error: error.message });
             }
           })
           .catch((error) => {
-            return res.status(500).json({  error: "error.post" });
+            return res.status(500).json({   error: error.message });
           });
       } else {
-        return res.status(404).json({  error: "error.post" });
+        return res.status(404).json({   error: error.message  });
       }
     })
     .catch((error) => {
-      return res.status(500).json({ error: "error.post" });
+      return res.status(500).json({ error: error.message });
     });
 };
 exports.deleteComments = (req, res) => {
@@ -110,7 +110,7 @@ exports.getPostAllComments = (req, res) => {
     include: [
       {
         model: models.User,
-        attributes: ["name", "surname", "id", "imageUrl"],
+        attributes: ["name", "surname", "id", "profilePic"],
       },
     ],
   }).then((data) => {
@@ -128,7 +128,7 @@ exports.getPostAllComments = (req, res) => {
     } else if (response.totalItems > 0) {
       res.send(response);
     } else {
-      res.status(404).json({ error: "error.messsssage" })
+      res.status(404).json({ error: "Aucun commentaires" })
     }
   })
 }
@@ -153,6 +153,6 @@ exports.getOneComment= (req, res) => {
     }
   })
   .catch((error) => {
-    return res.status(404).json({ error: "error.messssssage"});
+    return res.status(404).json({ error: error.message});
   });
 };

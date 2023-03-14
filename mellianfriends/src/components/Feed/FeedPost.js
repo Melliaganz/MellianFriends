@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import profil from "../../images/Portrait.jpg"
+import { getIdFromCookie } from '../../_utils/auth/auth.functions';
 
 const FeedPost = ({ onPost }) => {
     const [contentValue, setContentValue] = useState("");
     const [imageUrlValue, setImageUrlValue] = useState("");
+    const idFromCookie = getIdFromCookie();
+    
 
     async function SendData(e) {
         e.preventDefault();
@@ -11,7 +13,7 @@ const FeedPost = ({ onPost }) => {
 
         const requestOptions = {
             method:"POST",
-            headers: {"Content-type": "multipart/form-data"},
+            headers: {"Content-type": "application/json"},
             credentials: "include",
             body: JSON.stringify({
                 content: contentValue,
@@ -28,24 +30,25 @@ const FeedPost = ({ onPost }) => {
                 setImageUrlValue("");
             }
         })
-
+        
         .catch((error) => console.log(error));
+        window.location.reload();
     }
 
   return (
     <div className='cardCreatePostContainer'>
             <form onSubmit={SendData}>
             <div className='cardCreatePostTitle' >
-                <a href="/profil" alt="profil">
-                <img src={profil} alt="Profil" title="profil" height={45}/>
+                <a href={"/account/" + idFromCookie} alt="profil" title="Profil">
+                <img src={imageUrlValue} crossOrigin="anonymous" alt="Profil" title="profil" height={45}/>
                 </a>
-                <input type="text" alt="text" placeholder="Postez quelque chose..." value={contentValue} onChange={(event) => setContentValue(event.target.value)}></input>
+                <textarea maxLength="450" type="text" alt="text" placeholder="Postez quelque chose..." required value={contentValue} onChange={(event) => setContentValue(event.target.value)}></textarea>
             </div>
             <div className='cardCreatePostBody'>
                 <div className='bouttonAjouterPhoto'>
                     <input 
                     accept="image/*"
-                    name="image"
+                    name="imageUrl"
                     type="file"
                     aria-labelledby='Images'
                     value={imageUrlValue}

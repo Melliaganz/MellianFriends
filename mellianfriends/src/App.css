@@ -84,10 +84,34 @@ body{
   justify-content: center;
   align-items: center;
 }
-.formConnexion{
+.formulaireDedit{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .formulaireConnexion input{
+  display: table;
+  border-radius: 50px;
+  padding: 15px;
+  background-color: #3a3b3c;
+  color: white;
+  margin: 15px;
+  border: none;
+}
+.bouttonSoumettreDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formulaireDedit button{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-radius: 25px;
+  background-color: rebeccapurple;
+}
+.formulaireDedit input{
   display: table;
   border-radius: 50px;
   padding: 15px;
@@ -168,6 +192,18 @@ header img{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+label {
+  display: flex;
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 1rem;
+  transition: 0.25s;
+  border-radius: 50%;
+}
+label:hover{
+  background-color: #B0B3B8;
+  transition: 0.25s;
 }
 .buttonSubmit button{
   display: flex;
@@ -251,7 +287,7 @@ input:focus-visible{
 .cardCreatePostTitle img{
 border-radius: 50%;
 }
-.cardCreatePostTitle input{
+.cardCreatePostTitle textarea{
   margin-left: 10px;
   border-radius: 35px 35px 35px 35px;
   height: 40px;
@@ -262,6 +298,7 @@ border-radius: 50%;
   font-weight: bold;
   border: none;
   padding: 10px;
+  resize: none;
 }
 .hourAndDate{
   display: flex;
@@ -269,6 +306,7 @@ border-radius: 50%;
   align-items: center;
   font-size: xx-small;
   color: #B0B3B8;
+  margin-top: -10px;
 }
 
 .cardCreatePostContainer{
@@ -323,12 +361,20 @@ border-radius: 50%;
   align-items: center;
   justify-content: space-between;
 }
+.cardFeedTitleContainer a{
+  text-decoration: none;
+  color: inherit;
+}
+.cardFeedTitleContainer a:hover{
+  text-decoration: underline;
+}
 .cardFeedTitleProfil{
   display: flex;
   align-items: center;
 }
 .cardFeedTitleProfil p {
   margin-left: 15px;
+  text-transform: capitalize;
 }
 .cardFeedTitleProfil img{
   border-radius: 25px;
@@ -485,7 +531,7 @@ border-radius: 50%;
 .profilHeaderBanner img{
   object-fit:cover;
   width: 1222px;
-  max-height: 833px;
+  max-height: 500px;
   border-radius: 0px 0px 25px 25px;
 }
 .profilHeaderBannerContainer{
@@ -560,6 +606,9 @@ border-radius: 50%;
 }
 .infoProfileContainer{
   text-align: center;
+}
+.buttonModifierProfil{
+  margin-left: 15px;
 }
 .buttonModifierProfil a{
   text-decoration: none;
@@ -649,6 +698,8 @@ border-radius: 50%;
 .feedPostContainer{
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .feedContentProfil{
   display: flex;
@@ -730,8 +781,8 @@ border-radius: 50%;
   background-color : #242526;
   border-radius: 25px;
   padding: 10px;
-  overflow: hidden;
   max-height: 530px;
+  max-width: 421px;
 }
 .photosCardTitle{
   display: flex;
@@ -745,9 +796,6 @@ border-radius: 50%;
 .photosCardTitle a:hover{
   color: rgb(255, 255, 255);
   transition: 0.25s;
-}
-.photosContainer{
-  max-width: 421px;
 }
 .photosContainer img{
   object-fit: cover;
@@ -886,4 +934,29 @@ border-radius: 50%;
   color: red;
   scale: 0.99;
   transition: 0.25s;
+}
+.ProfilHeader{
+  display: flex;
+  justify-content: center;
+}
+.postLink{
+  text-decoration: none;
+  
+}
+.commentairesContainer{
+  display: flex;
+}
+@media only screen and (max-width: 1500px){
+  .rightbarContainer{
+    display: none;
+  }
+  .introBlockContainer{
+    display: none;
+  }
+  .friendsContainer{
+    display: none;
+  }
+  .photosContainer{
+    display: none;
+  }
 }
