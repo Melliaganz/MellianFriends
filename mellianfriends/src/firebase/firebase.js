@@ -17,7 +17,6 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-console.log(process.env)
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
