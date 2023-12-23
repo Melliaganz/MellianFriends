@@ -1,168 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body
-{
-    font-family: "Roboto", sans-serif;
-    background-color: black;
-    color: white;
-}
-main{
-    margin-top: 10vw;
-}
-ul{
-    list-style-type: none;
-}
-.menuHeader ul{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.menuHeader li {
-    margin-right: 25px;
-}
-header{
-    position: fixed;
-    display: flex;
-}
-.signupContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.headerContainer{
-    width: 100vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.blocConnexion{
-    margin-top: 10vw;
-    width: 750px;
-    height: 600px;
-    border-radius: 25px;
-    padding: 25px;
-    background-color: #292929;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: space-around;
-}
-.loginContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.titreSignup{
-    margin-top: 125px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.bouttonsConnexion{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;   
-    width: 80%;
-}
-.bouttonConnexion{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.menuHeader a{
-    border-radius: 25px;
-    padding: 10px;
-    text-decoration: none;
-    color: #d9d9d9;
-    transition: 0.25s;
-}
-.menuHeader a:hover{
-    transition: 0.25s;
-    background-color: #292929;
-    color: white;
-}
-.logoSite a:hover{
-    opacity: 0.9;
-}
-.menuHeader button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    padding: 10px;
-    color: #d9d9d9;
-    border: none
-}
-.menuHeader button:hover{
-    border-radius: 25px;
-    background-color: #292929;
-    padding: 10px;
-    cursor: pointer;
-}
-.notFoundContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.notFoundContainer h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    scale: 5;
+.App {
+  text-align: center;
 }
 
-.notFoundInterieur{
-    margin-top: 20%;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
-.lienRetourAccueil a{
-    text-decoration: none;
-    color: #d9d9d9;
-    font-size: xx-large;
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
-.lienRetourAccueil a:hover{
-    color: white;
-    transition: 0.25s;
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-form{
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    justify-content: space-around;
-    align-items: center;
+
+.App-link {
+  color: #61dafb;
 }
-label{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-input{
-    border-radius: 25px;
-    padding: 10px;
-    background-color: #d87093;
-    border: none;
-    color: black;
-}
-button{
-    min-width: 130px;
-    height: 40px;
-    color: #fff;
-    padding: 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    outline: none;
-    border-radius: 20px;
-    border: 2px solid #ff0a78;
-    background: #ff0a78;
-}
-button:hover{
-    cursor: pointer;
-    background: #fff;
-    color: #ff0a78;
-    border-color: white;
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
