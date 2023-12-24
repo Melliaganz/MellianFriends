@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_API_KEY,
-  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_APP_ID,
-  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  apiKey: "AIzaSyCAGcgHz3SCfY4Wr-FqZg8a-LqVCHvcEcI",
+  authDomain: "mellianfriends-2cd39.firebaseapp.com",
+  projectId: "mellianfriends-2cd39",
+  storageBucket: "mellianfriends-2cd39.appspot.com",
+  messagingSenderId: "851873891051",
+  appId: "1:851873891051:web:9388d467059f1324caf4ae",
+  measurementId: "G-KV76YBG0ZZ"
 };
 
 // Initialize Firebase
