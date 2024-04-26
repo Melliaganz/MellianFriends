@@ -7,7 +7,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signOut, onAuthStateChanged  } from 'firebase/auth';
 import Header from './components/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
 import "./App.css"
 
 
@@ -16,13 +15,13 @@ function App() {
   const [darkMode, setDarkMode] = useState(false); 
 
   const firebaseConfig = {
-    apiKey: "AIzaSyDImyVH55duHIT-d3H-HwV21lkhizqY2Ro",
-    authDomain: "mellianfriends-36e4e.firebaseapp.com",
-    projectId: "mellianfriends-36e4e",
-    storageBucket: "mellianfriends-36e4e.appspot.com",
-    messagingSenderId: "730276175398",
-    appId: "1:730276175398:web:386b5cb09696eda67750e7",
-    measurementId: "G-1RZMP8FQCV"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID
   };
   const firebaseApp = initializeApp(firebaseConfig);
   const auth = getAuth(firebaseApp);
@@ -49,7 +48,6 @@ function App() {
   return (
     <Router>
         <ThemeProvider theme={theme}>
-
         {user && <Header user={user} handleLogout={handleLogout} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
       <Routes>
         <Route

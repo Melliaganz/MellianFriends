@@ -37,7 +37,7 @@ function Login({ auth }) {
   return (
     <div className='loginContainer'>
       <h2>Connexion</h2>
-      <form onSubmit={handleSubmit}>
+      <form className='formulaireDeConnexion' onSubmit={handleSubmit}>
         <TextField
           type="email"
           placeholder="Adresse email"

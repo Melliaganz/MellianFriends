@@ -9,10 +9,29 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: black;
+  padding: 25px;
 }
 .loginContainer{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.home-button{
+  display: flex;
+  gap: 20px;
+}
+.dark-mode-toggle:hover {
+  opacity: 0.8;
+}
+.formulaireDeConnexion{
+  display: flex;
+  gap: 25px;
 }

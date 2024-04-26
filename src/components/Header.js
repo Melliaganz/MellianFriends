@@ -9,18 +9,19 @@ function Header({ user, handleLogout, toggleDarkMode, darkMode }) {
       <div className="logo">
         <img src={logo} alt="logo" width={25} height={25} />
       </div>
+      <div className="home-button">
       {user && (
         <div className="menu">
           <button onClick={handleLogout}><Logout /></button>
+          <Link to="/profile">Profil</Link>
           {/* Ajoute ici le menu pour accéder aux options de profil */}
         </div>
       )}
-      <div className="home-button">
         <button onClick={toggleDarkMode}>
           {darkMode ? <Brightness7 /> : <Brightness4 />} {/* Affiche l'icône en fonction du mode sombre */}
         </button>
         <Link to="/">
-          <span><Home /></span>
+          <button><Home /></button>
         </Link>
       </div>
     </header>
