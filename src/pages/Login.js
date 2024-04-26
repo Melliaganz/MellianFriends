@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { Google } from '@mui/icons-material';
+import { Brightness4, Brightness7, Google } from '@mui/icons-material';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, TextField } from '@mui/material';
 
 
-function Login({ auth }) {
+function Login({ auth, toggleDarkMode, darkMode }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function Login({ auth }) {
     try {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
-      navigate('/'); // Redirige après la connexion réussie
+      navigate('/');
     } catch (error) {
       console.error('Error signing in with Google:', error);
     }
@@ -55,6 +55,9 @@ function Login({ auth }) {
         <Button type="submit">Se connecter</Button>
       </form>
       <Button onClick={handleGoogleSignIn}><Google/></Button>
+      <Button onClick={toggleDarkMode}>
+          {darkMode ? <Brightness7 /> : <Brightness4 />} 
+        </Button>
       <p>Vous n'avez pas de compte ? <Link to="/signup">Inscrivez-vous ici</Link></p>
     </div>
   );
