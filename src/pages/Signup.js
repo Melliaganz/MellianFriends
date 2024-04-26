@@ -1,14 +1,24 @@
-// Signup.js
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { createUserWithEmailAndPassword } from 'firebase/auth'; // Importe la fonction correctement
 
-function Signup() {
+function Signup({ auth }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  if (auth.currentUser) {
+    return <Navigate to="/" />; // Redirige vers la page d'accueil
+  }
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Ajouter la logique d'inscription avec Firebase ici
+    try {
+      // Utilise correctement la fonction createUserWithEmailAndPassword
+      await createUserWithEmailAndPassword(auth, email, password);
+      navigate('/'); // Redirige après l'inscription réussie
+    } catch (error) {
+      console.error('Error signing up with email and password:', error);
+    }
   };
 
   return (

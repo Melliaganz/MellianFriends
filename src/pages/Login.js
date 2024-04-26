@@ -1,9 +1,10 @@
 // Login.js
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { Google } from '@mui/icons-material';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Button, TextField } from '@mui/material';
 
 
 function Login({ auth }) {
@@ -11,6 +12,9 @@ function Login({ auth }) {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  if (auth.currentUser) {
+    return <Navigate to="/" />; // Redirige vers la page d'accueil
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -31,26 +35,26 @@ function Login({ auth }) {
     }
   };
   return (
-    <div>
+    <div className='loginContainer'>
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
           type="email"
           placeholder="Adresse email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <input
+        <TextField
           type="password"
           placeholder="Mot de passe"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Se connecter</button>
+        <Button type="submit">Se connecter</Button>
       </form>
-      <button onClick={handleGoogleSignIn}><Google/></button>
+      <Button onClick={handleGoogleSignIn}><Google/></Button>
       <p>Vous n'avez pas de compte ? <Link to="/signup">Inscrivez-vous ici</Link></p>
     </div>
   );
