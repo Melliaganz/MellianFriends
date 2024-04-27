@@ -38,7 +38,10 @@ body{
 }
 .formulaireDeConnexion{
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   gap: 25px;
+  max-width: 550px;
 }
 .formPost{
   width: 25vw;
@@ -83,4 +86,10 @@ body{
   display: flex;
   align-items: Center;
   justify-content: space-around;
+}
+.modalContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40vh;
 }

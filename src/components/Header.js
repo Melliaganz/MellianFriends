@@ -9,7 +9,11 @@ function Header({ user, handleLogout, toggleDarkMode, darkMode }) {
   return (
     <header className='headerContainer'>
       <div className="logo">
+        <Link to={"/"}>
+        <Button>
         <img src={logo} alt="logo" width={25} height={25} />
+        </Button>
+        </Link>
       </div>
       <div className="home-button">
         {user && (
