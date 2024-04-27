@@ -9,6 +9,10 @@ import Header from './components/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./App.css"
 import { CssBaseline } from '@mui/material';
+import { getDatabase } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
+import UserProfile from './pages/UserProfile';
+import { getStorage } from 'firebase/storage';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -30,6 +34,10 @@ function App() {
   };
   const firebaseApp = initializeApp(firebaseConfig);
   const auth = getAuth(firebaseApp);
+  const database = getDatabase(firebaseApp)
+  const firestore = getFirestore(firebaseApp);
+  const storage = getStorage(firebaseApp)
+
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -43,7 +51,7 @@ function App() {
           main: darkMode ? '#f44336' : '#f50057',
         },
         background: {
-          default: darkMode ? '#ffffff' : '#000000', 
+          default: darkMode ? '#000000' : '#ffffff', 
         },
       },
     });
@@ -73,13 +81,14 @@ function App() {
         {user && <Header user={user} handleLogout={handleLogout} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />}
         <Routes>
           <Route path="/login" element={<Login auth={auth} toggleDarkMode={toggleDarkMode} darkMode={darkMode}  />} />
-          <Route path="/signup" element={<Signup auth={auth} />} />
+          <Route path="/signup" element={<Signup auth={auth} storage={storage} toggleDarkMode={toggleDarkMode} darkMode={darkMode} firestore={firestore} />} />
           <Route
             path="/"
             element={
-              user ? <Accueil auth={auth} /> : <Navigate to="/login" />
+              user ? <Accueil auth={auth} database={database} firestore={firestore} /> : <Navigate to="/login" />
             }
           />
+          <Route path="/profile/:userId" element={user ? <UserProfile  user={user} auth={auth} database={database} firestore={firestore}/> : <Navigate to="/login"/>} />
         </Routes>
       </ThemeProvider>
     </Router>

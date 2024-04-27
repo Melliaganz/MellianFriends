@@ -4,14 +4,18 @@ body{
   font-family: 'Roboto', sans-serif;  
 }
 .headerContainer{
-  position: sticky;
+  z-index: 999;
+  top: 0;
+  position:sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: black;
   padding: 25px;
+  width: 100vw;
 }
 .loginContainer{
+  padding: 20vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,4 +39,48 @@ body{
 .formulaireDeConnexion{
   display: flex;
   gap: 25px;
+}
+.formPost{
+  width: 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.postFeedContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  gap: 10px
+}
+.postInterieur{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  background-color: #00000034;
+  padding: 10px;
+  border-radius: 25px;
+  max-width: fit-content;
+}
+.postInterieur img{
+  max-width: 30vw;
+  border-radius: 25px;
+}
+.postInterieur video{
+  border-radius: 25px;
+}
+.postInterieurContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.postDescription{
+  display: flex;
+  align-items: Center;
+  justify-content: space-around;
 }
