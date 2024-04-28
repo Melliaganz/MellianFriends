@@ -76,6 +76,7 @@ body{
 }
 .postInterieur video{
   border-radius: 25px;
+  max-width: 30vw;
 }
 .postInterieurContainer{
   display: flex;

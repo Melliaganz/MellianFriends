@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { Brightness4, Brightness7, Google } from '@mui/icons-material';
+import { Brightness4, Brightness7, Google, Login as LoginIcon } from '@mui/icons-material';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Button, TextField } from '@mui/material';
 
@@ -52,7 +52,7 @@ function Login({ auth, toggleDarkMode, darkMode }) {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <Button type="submit">Se connecter</Button>
+        <Button type="submit"><LoginIcon/></Button>
       </form>
       <Button onClick={handleGoogleSignIn}><Google/></Button>
       <Button onClick={toggleDarkMode}>
